@@ -55,7 +55,7 @@ void IntList::pop_back()
     }
 }
 
-bool IntList::empty const()
+bool IntList::empty() const
 {
     int count = 0;
     IntNode *currNode = dummyHead;
