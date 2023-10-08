@@ -27,7 +27,7 @@ void IntList::push_front(int value)
 
 void IntList::pop_front()
 {
-    if (!this->dummyHead->next->data == 0)
+    if (!(this->dummyHead->next == this->dummyTail))
     {
         this->dummyHead->next = this->dummyHead->next->next;
         this->dummyHead->next->prev = this->dummyHead;
@@ -45,7 +45,7 @@ void IntList::push_back(int value)
 
 void IntList::pop_back()
 {
-    if (!this->dummyTail->prev->data == 0)
+    if (!(this->dummyTail->prev == this->dummyHead))
     {
         this->dummyTail->prev = this->dummyTail->prev->prev;
         this->dummyTail->prev->next = this->dummyTail;
