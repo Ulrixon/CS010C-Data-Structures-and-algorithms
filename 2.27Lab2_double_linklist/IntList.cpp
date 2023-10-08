@@ -6,10 +6,10 @@ IntList::IntList()
 {
     this->dummyHead = new IntNode(0);
     this->dummyTail = new IntNode(0);
-    this->dummyHead->prev = NULL;
+    // this->dummyHead->prev = NULL;
     this->dummyHead->next = dummyTail;
     this->dummyTail->prev = dummyHead;
-    this->dummyTail->next = NULL;
+    // this->dummyTail->next = NULL;
 }
 
 IntList::~IntList()
