@@ -5,12 +5,10 @@ using namespace std;
 IntList::IntList()
 {
 
-    this->dummyHead = dummyHead;
-    this->dummyTail = dummyTail;
-    dummyHead->prev = nullptr;
-    dummyHead->next = dummyTail;
-    dummyTail->prev = dummyHead;
-    dummyTail->next = nullptr;
+    this->dummyHead->prev = nullptr;
+    this->dummyHead->next = dummyTail;
+    this->dummyTail->prev = dummyHead;
+    this->dummyTail->next = nullptr;
 }
 
 IntList::~IntList()
