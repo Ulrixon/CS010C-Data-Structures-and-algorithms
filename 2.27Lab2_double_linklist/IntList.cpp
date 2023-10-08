@@ -57,7 +57,7 @@ void IntList::pop_back()
 bool IntList::empty() const
 {
     int count = 0;
-    IntNode *currNode = dummyHead;
+    IntNode *currNode = this->dummyHead;
     while (currNode != 0)
     {
         count++;
@@ -70,5 +70,14 @@ bool IntList::empty() const
     else
     {
         return false;
+    }
+}
+
+friend std::ostream &operator<<(std::ostream &out, const IntList &rhs)
+{
+    IntNode *currNode = rhs->dummyHead->next;
+    while (currNode != rhs->dummyTail)
+    {
+        out << currNode->data;
     }
 }
