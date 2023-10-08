@@ -1,6 +1,6 @@
 #ifndef INTLIST_H
 #define INTLIST_H
-
+using namespace std;
 struct IntNode
 {
     int data;
