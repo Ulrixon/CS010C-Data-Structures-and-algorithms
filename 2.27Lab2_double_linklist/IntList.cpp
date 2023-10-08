@@ -57,7 +57,7 @@ bool IntList::empty() const
 {
     int count = 0;
     IntNode *currNode = dummyHead;
-    while (currNode != NULL)
+    while (currNode != 0)
     {
         count++;
         currNode = currNode->next;
