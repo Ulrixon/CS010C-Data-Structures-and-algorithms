@@ -4,8 +4,10 @@ using namespace std;
 
 IntList::IntList()
 {
-    this->dummyHead = new IntNode(0);
-    this->dummyTail = new IntNode(0);
+    IntNode *dummyNodeHead = new IntNode(0);
+    IntNode *dummyNodeTail = new IntNode(0);
+    this->dummyHead = dummyNodeHead;
+    this->dummyTail = dummyNodeTail;
     // this->dummyHead->prev = NULL;
     this->dummyHead->next = dummyTail;
     this->dummyTail->prev = dummyHead;
@@ -14,7 +16,6 @@ IntList::IntList()
 
 IntList::~IntList()
 {
-    delete this;
 }
 
 void IntList::push_front(int value)
