@@ -14,6 +14,11 @@ IntList::IntList()
     dummyNodeTail->next = nullptr;
 }
 
+IntList::~IntList()
+{
+    delete this;
+}
+
 void IntList::push_front(int value)
 {
     IntNode *currNode = new IntNode(value);
@@ -43,4 +48,28 @@ void IntList::push_back(int value)
 
 void IntList::pop_back()
 {
+    if (!this->dummyTail->prev->data == 0)
+    {
+        this->dummyTail->prev =->dummyTail->prev->prev;
+        this->dummyTail->prev->next = this->dummyTail;
+    }
+}
+
+bool IntList::empty()
+{
+    int count = 0;
+    IntNode *currNode = dummyHead;
+    while (currNode != nullptr)
+    {
+        count++;
+        currNode = currNode->next;
+    }
+    if (count == 2)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
