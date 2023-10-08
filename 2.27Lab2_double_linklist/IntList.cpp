@@ -91,3 +91,18 @@ std::ostream &operator<<(std::ostream &out, const IntList &rhs)
     out << "";
     return out;
 }
+
+void IntList::printReverse() const
+{
+    IntNode *currNode = this->dummyTail->prev;
+    if (currNode != this->dummyHead)
+    {
+        cout << currNode->data;
+        currNode = currNode->prev;
+    }
+    while (currNode != this->dummyHead)
+    {
+        out << " " << currNode->data;
+        currNode = currNode->prev;
+    }
+}
