@@ -102,7 +102,7 @@ void IntList::printReverse() const
     }
     while (currNode != this->dummyHead)
     {
-        out << " " << currNode->data;
+        cout << " " << currNode->data;
         currNode = currNode->prev;
     }
 }
