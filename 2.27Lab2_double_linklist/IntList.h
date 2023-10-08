@@ -1,5 +1,6 @@
 #ifndef INTLIST_H
 #define INTLIST_H
+#include <iostream>
 using namespace std;
 struct IntNode
 {
@@ -24,7 +25,7 @@ public:
     void push_back(int value);
     void pop_back();
     bool empty() const;
-    friend ostream &operator<<(ostream &out, const IntList &rhs);
+    friend std::ostream &operator<<(std::ostream &out, const IntList &rhs);
     void printReverse() const;
 };
 
