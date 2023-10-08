@@ -13,8 +13,10 @@ struct IntNode
 class IntList
 {
 private:
-    IntNode *dummyHead;
-    IntNode *dummyTail;
+    IntNode *dummyHead = new IntNode(0);
+    ;
+    IntNode *dummyTail = new IntNode(0);
+    ;
 
 public:
     IntList();

@@ -4,14 +4,13 @@ using namespace std;
 
 IntList::IntList()
 {
-    IntNode *dummyNodeHead = new IntNode(0);
-    IntNode *dummyNodeTail = new IntNode(0);
+
     this->dummyHead = dummyNodeHead;
     this->dummyTail = dummyNodeTail;
     dummyHead->prev = nullptr;
-    dummyNodeHead->next = dummyNodeTail;
-    dummyNodeTail->prev = dummyNodeHead;
-    dummyNodeTail->next = nullptr;
+    dummyHead->next = dummyNodeTail;
+    dummyTail->prev = dummyNodeHead;
+    dummyTail->next = nullptr;
 }
 
 IntList::~IntList()
