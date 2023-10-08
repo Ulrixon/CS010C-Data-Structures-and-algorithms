@@ -79,6 +79,7 @@ std::ostream &operator<<(std::ostream &out, const IntList &rhs)
     if (currNode != rhs.dummyTail)
     {
         out << currNode->data;
+        currNode = currNode->next;
     }
 
     while (currNode != rhs.dummyTail)
