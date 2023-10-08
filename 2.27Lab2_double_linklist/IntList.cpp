@@ -75,8 +75,8 @@ bool IntList::empty() const
 
 std::ostream &operator<<(std::ostream &out, const IntList &rhs)
 {
-    IntNode *currNode = rhs->dummyHead->next;
-    while (currNode != rhs->dummyTail)
+    IntNode *currNode = this->dummyHead->next;
+    while (currNode != this->dummyTail)
     {
         out << currNode->data;
     }
