@@ -14,9 +14,8 @@ class IntList
 {
 private:
     IntNode *dummyHead = new IntNode(0);
-    ;
+
     IntNode *dummyTail = new IntNode(0);
-    ;
 
 public:
     IntList();
