@@ -50,12 +50,12 @@ void IntList::pop_back()
 {
     if (!this->dummyTail->prev->data == 0)
     {
-        this->dummyTail->prev =->dummyTail->prev->prev;
+        this->dummyTail->prev = this->dummyTail->prev->prev;
         this->dummyTail->prev->next = this->dummyTail;
     }
 }
 
-bool IntList::empty()
+bool IntList::empty const()
 {
     int count = 0;
     IntNode *currNode = dummyHead;
