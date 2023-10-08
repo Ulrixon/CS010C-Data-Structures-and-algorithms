@@ -13,9 +13,9 @@ struct IntNode
 class IntList
 {
 private:
-    IntNode *dummyHead = new IntNode(0);
+    IntNode *dummyHead;
 
-    IntNode *dummyTail = new IntNode(0);
+    IntNode *dummyTail;
 
 public:
     IntList();

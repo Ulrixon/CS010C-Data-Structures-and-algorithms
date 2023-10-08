@@ -4,11 +4,12 @@ using namespace std;
 
 IntList::IntList()
 {
-
-    this->dummyHead->prev = nullptr;
+    this->dummyHead = new IntNode(0);
+    this->dummyTail = new IntNode(0);
+    this->dummyHead->prev = NULL;
     this->dummyHead->next = dummyTail;
     this->dummyTail->prev = dummyHead;
-    this->dummyTail->next = nullptr;
+    this->dummyTail->next = NULL;
 }
 
 IntList::~IntList()
@@ -56,7 +57,7 @@ bool IntList::empty() const
 {
     int count = 0;
     IntNode *currNode = dummyHead;
-    while (currNode != nullptr)
+    while (currNode != NULL)
     {
         count++;
         currNode = currNode->next;
