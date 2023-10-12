@@ -9,7 +9,7 @@ unsigned min_index(const vector<T> &vals, unsigned index)
     unsigned minIndex;
     minIndex = index;
     min = vals.at(index);
-    for (int i = index; i < vals.size(); i++) // find the next min and record its index and set it min
+    for (size_t i = index; i < vals.size(); i++) // find the next min and record its index and set it min
     {
         if (vals.at(i) < min)
         {
@@ -25,7 +25,7 @@ vector<T> selection_sort(vector<T> &vals)
 {
     unsigned minIndex;
     T tmp; // used for swap
-    for (int i = 0; i < vals.size(); i++)
+    for (size_t i = 0; i < vals.size(); i++)
     {
         minIndex = min_index(vals, i);
         tmp = vals.at(i); // swap location i with min
@@ -38,7 +38,8 @@ vector<T> selection_sort(vector<T> &vals)
 template <typename T>
 T getElement(vector<T> vals, int index)
 {
-    if (index >= vals.size())
+    size_t index_t = index;
+    if (index_t >= vals.size())
     {
         throw runtime_error("out of range exception occured");
     }
