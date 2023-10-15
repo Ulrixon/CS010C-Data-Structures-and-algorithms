@@ -14,8 +14,17 @@ IntList::IntList()
     // this->dummyTail->next = NULL;
 }
 
-IntList::~IntList()
+IntList::~IntList() // delete Node start from dummyHead to the end
 {
+    IntNode *currNode = dummyHead;
+    IntNode *prevNode = dummyHead;
+    while (currNode->next != 0)
+    {
+        prevNode = currNode;
+        currNode = currNode->next;
+        delete prevNode;
+    }
+    delete currNode;
 }
 
 void IntList::push_front(int value)
