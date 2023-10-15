@@ -20,9 +20,9 @@ private:
 public:
     IntList();
 
-    ~IntList();                                       // destructor
-    IntList(const IntList &) = delete;                // prohibite copy
-    IntList &operator=(const NonCopyable &) = delete; // prohibit copy assignment
+    ~IntList();                                   // destructor
+    IntList(const IntList &) = delete;            // prohibite copy
+    IntList &operator=(const IntList &) = delete; // prohibit copy assignment
     void push_front(int value);
     void pop_front();
     void push_back(int value);
