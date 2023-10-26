@@ -6,12 +6,11 @@ IntList::IntList()
 {
     IntNode *dummyNodeHead = new IntNode(0);
     IntNode *dummyNodeTail = new IntNode(0);
-    this->dummyHead = dummyNodeHead;
+    this->dummyHead = dummyNodeHead; // point the dummyhead and tail to new nodes
     this->dummyTail = dummyNodeTail;
-    // this->dummyHead->prev = NULL;
-    this->dummyHead->next = dummyTail;
+
+    this->dummyHead->next = dummyTail; // connect new nodes
     this->dummyTail->prev = dummyHead;
-    // this->dummyTail->next = NULL;
 }
 
 IntList::~IntList() // delete Node start from dummyHead to the end
@@ -38,7 +37,7 @@ void IntList::push_front(int value)
 
 void IntList::pop_front()
 {
-    if (!(this->dummyHead->next == this->dummyTail))
+    if (!(this->dummyHead->next == this->dummyTail)) // if this list is not empty (means only dummy nodes exists)
     {
         this->dummyHead->next = this->dummyHead->next->next;
         this->dummyHead->next->prev = this->dummyHead;
@@ -56,7 +55,7 @@ void IntList::push_back(int value)
 
 void IntList::pop_back()
 {
-    if (!(this->dummyTail->prev == this->dummyHead))
+    if (!(this->dummyTail->prev == this->dummyHead)) // if this list is not empty (means only dummy nodes exists)
     {
         this->dummyTail->prev = this->dummyTail->prev->prev;
         this->dummyTail->prev->next = this->dummyTail;
@@ -67,12 +66,12 @@ bool IntList::empty() const
 {
     int count = 0;
     IntNode *currNode = this->dummyHead;
-    while (currNode != 0)
+    while (currNode != 0) // compute how many node in total
     {
         count++;
         currNode = currNode->next;
     }
-    if (count == 2)
+    if (count == 2) // if only dummy nodes exists
     {
         return true;
     }
@@ -85,13 +84,13 @@ bool IntList::empty() const
 std::ostream &operator<<(std::ostream &out, const IntList &rhs)
 {
     IntNode *currNode = rhs.dummyHead->next;
-    if (currNode != rhs.dummyTail)
+    if (currNode != rhs.dummyTail) // if currNode is not dummyTail print data and go to next node
     {
         out << currNode->data;
         currNode = currNode->next;
     }
 
-    while (currNode != rhs.dummyTail)
+    while (currNode != rhs.dummyTail) // while currNode is not dummyTail print data and go to next node
     {
 
         out << " " << currNode->data;
@@ -104,12 +103,12 @@ std::ostream &operator<<(std::ostream &out, const IntList &rhs)
 void IntList::printReverse() const
 {
     IntNode *currNode = this->dummyTail->prev;
-    if (currNode != this->dummyHead)
+    if (currNode != this->dummyHead) // if currNode is not dummyHead print data and go to prev node
     {
         cout << currNode->data;
         currNode = currNode->prev;
     }
-    while (currNode != this->dummyHead)
+    while (currNode != this->dummyHead) // while currNode is not dummyHead print data and go to prev node
     {
         cout << " " << currNode->data;
         currNode = currNode->prev;

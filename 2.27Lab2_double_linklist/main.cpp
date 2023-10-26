@@ -2,9 +2,6 @@
 #include <iostream>
 using namespace std;
 
-int main()
+int main() // empty main
 {
-    // IntList *test = new IntList();
-    // cout << test->empty();
-    // cout << "finish";
 }

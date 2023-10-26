@@ -87,23 +87,39 @@ int main()
     vector<string> names;
 
     // get inputs
-    cin >> n >> k;
-    while (cin >> name && name != ".")
+    try
     {
-        names.push_back(name);
-    } // EOF or . ends input
+        cin >> n >> k;
+        if (cin.fail())
+        {
+            throw runtime_error("input error");
+        }
 
-    // initialize and run game
-    Node *startPerson = loadGame(n, names);
-    Node *lastPerson = runGame(startPerson, k);
+        while (cin >> name && name != ".")
+        {
+            if (cin.fail())
+            {
+                throw runtime_error("input error");
+            }
+            names.push_back(name);
+        } // EOF or . ends input
 
-    if (lastPerson != nullptr)
-    {
-        cout << lastPerson->payload << " wins!" << endl;
+        // initialize and run game
+        Node *startPerson = loadGame(n, names);
+        Node *lastPerson = runGame(startPerson, k);
+
+        if (lastPerson != nullptr)
+        {
+            cout << lastPerson->payload << " wins!" << endl;
+        }
+        else
+        {
+            cout << "error: null game" << endl;
+        }
     }
-    else
+    catch (const std::exception &e)
     {
-        cout << "error: null game" << endl;
+        std::cerr << e.what() << '\n';
     }
 
     return 0;

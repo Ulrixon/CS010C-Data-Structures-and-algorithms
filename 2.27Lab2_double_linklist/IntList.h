@@ -21,7 +21,7 @@ public:
     IntList();
 
     ~IntList();                                   // destructor
-    IntList(const IntList &) = delete;            // prohibite copy
+    IntList(const IntList &) = delete;            // prohibit copy
     IntList &operator=(const IntList &) = delete; // prohibit copy assignment
     void push_front(int value);
     void pop_front();

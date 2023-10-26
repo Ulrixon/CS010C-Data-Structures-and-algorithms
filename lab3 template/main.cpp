@@ -74,6 +74,9 @@ int main()
         {
             cout << "Enter a number: " << endl;
             cin >> index;
+            if(cin.fail()){
+                throw runtime_error("input error!");
+            }
             curChar = getElement(vals, index);
             cout << "Element located at " << index << ": is " << curChar << endl;
         }
