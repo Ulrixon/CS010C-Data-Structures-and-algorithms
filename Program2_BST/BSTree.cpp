@@ -8,9 +8,29 @@ BSTree::BSTree()
     root = NULL;
 }
 
+
+void deleteAllNodeInBST(Node * currNode) // using recursive function to delete all node starting from leafs.
+{
+    if(currNode == NULL)
+    {
+        return;
+    }
+
+    deleteAllNodeInBST(currNode->LeftPointer);
+    deleteAllNodeInBST(currNode->RightPointer);
+    delete currNode;
+}
+
 BSTree::~BSTree()
 {
+    Node *currNode = root;
+    if(root != NULL)
+    {
+        deleteAllNodeInBST(currNode);
+    }
 }
+
+
 
 void BSTree::insert(const string &newString)
 {
@@ -58,7 +78,7 @@ void BSTree::insert(const string &newString)
 void BSTree::remove_key(Node *currNode, Node *parentNode, const string &key)
 {
     Node *tmpNode = NULL; // this pointer is to point the node going to be deleted
-    if (currNode == NULL) // these ifs are finding the Node to be delete and it's parentNode
+    if (currNode == NULL) // these outer ifs are finding the Node to be delete and it's parentNode
     {
         return;
     }
@@ -79,7 +99,7 @@ void BSTree::remove_key(Node *currNode, Node *parentNode, const string &key)
             currNode->count--;
             return;
         }
-        if (currNode->LeftPointer != NULL ) // two children or only left
+        if (currNode->LeftPointer != NULL ) // two children or only left node
         {
             Node *successorNode = NULL;
             Node *parentSuccessorNode = NULL;
@@ -98,7 +118,7 @@ void BSTree::remove_key(Node *currNode, Node *parentNode, const string &key)
                 remove_key(successorNode, parentSuccessorNode, successorNode->data);
             }
         }
-        else if (currNode->RightPointer != NULL )
+        else if (currNode->RightPointer != NULL ) // only right node
         {
             Node *successorNode = NULL;
             Node *parentSuccessorNode = NULL;
@@ -117,7 +137,7 @@ void BSTree::remove_key(Node *currNode, Node *parentNode, const string &key)
                 remove_key(successorNode, parentSuccessorNode, successorNode->data);
             }
         }
-        else if (root == currNode)
+        else if (root == currNode) // if currNode is root
         {
             root = NULL;
             delete currNode;
@@ -163,7 +183,7 @@ void BSTree::remove(const string &key)
     }
     else
     {
-        remove_key(root, NULL, key);
+        remove_key(root, NULL, key); //call recursive function
     }
 }
 bool search_key(Node *currNode, const string &key)
@@ -210,7 +230,7 @@ string BSTree::largest() const
     }
 }
 
-string BSTree::smallest() const
+string BSTree::smallest() const // find the leftest one
 {
     if (root == NULL) // if empty
     {
@@ -227,7 +247,7 @@ string BSTree::smallest() const
     }
 }
 
-int height_of_key(Node *currNode, const string &key)
+int height_of_key(Node *currNode, const string &key) // find this subtree's max depth
 {
     if (currNode == NULL) // these ifs are finding the Node to be searched
     {
@@ -254,7 +274,7 @@ int height_of_key(Node *currNode, const string &key)
 int BSTree::height(const string &key) const
 {
     Node *currNode = root;
-    while (currNode != NULL)
+    while (currNode != NULL) // find the key's location
     {
         if (currNode->data > key)
         {
@@ -282,7 +302,7 @@ int BSTree::height(const string &key) const
     }
 }
 
-void BSTPrintPreorder(Node *currNode)
+void BSTPrintPreorder(Node *currNode) // node left right
 {
     if (currNode == NULL)
     {
@@ -295,10 +315,10 @@ void BSTPrintPreorder(Node *currNode)
 
 void BSTree::preOrder() const
 {
-    BSTPrintPreorder(root);
+    BSTPrintPreorder(root); // call recursive fuction
 }
 
-void BSTPrintPostorder(Node *currNode)
+void BSTPrintPostorder(Node *currNode) // left right node
 {
     if (currNode == NULL)
     {
@@ -312,10 +332,10 @@ void BSTPrintPostorder(Node *currNode)
 
 void BSTree::postOrder() const
 {
-    BSTPrintPostorder(root);
+    BSTPrintPostorder(root); // call recursive fuction
 }
 
-void BSTPrintInorder(Node *currNode)
+void BSTPrintInorder(Node *currNode) // left node right
 {
     if (currNode == NULL)
     {
@@ -328,5 +348,5 @@ void BSTPrintInorder(Node *currNode)
 
 void BSTree::inOrder() const
 {
-    BSTPrintInorder(root);
+    BSTPrintInorder(root); // call recursive fuction
 }

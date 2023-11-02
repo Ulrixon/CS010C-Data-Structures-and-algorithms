@@ -8,7 +8,7 @@ using std::cout;
 using std::endl;
 using std::string;
 
-void run_tests()
+void run_tests() // has been disable 
 {
     cout << "Constructing BS Tree...";
     BSTree bst = BSTree();
@@ -114,7 +114,7 @@ void run_tests()
     cout << "Passed " << totalTests - failedTests << " / " << totalTests << " tests." << endl;
 }
 
-void printOrders(BSTree *tree)
+void printOrders(BSTree *tree) // print all orders
 {
     cout << "Preorder = ";
     tree->preOrder();
@@ -143,6 +143,10 @@ int menu()
         << "7. Height" << endl
         << "8. Quit" << endl;
     cin >> choice;
+    if(cin.fail())
+    {
+        throw runtime_error("input fail.");
+    }
     //cin >> choice;
 
     // fix buffer just in case non-numeric choice entered
@@ -159,12 +163,12 @@ int main()
     //return 0;
 
     BSTree *tree = new BSTree();
-
+    try
+    {
     int choice = menu();
 
     string entry;
-    try
-    {
+    
         while (choice != 8)
         {
 

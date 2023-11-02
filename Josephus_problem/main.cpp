@@ -82,7 +82,7 @@ Node *runGame(Node *start, int k)
 /* Driver program to test above functions */
 int main()
 {
-    int n = 1, k = 1, max; // n = num names; k = num skips (minus 1)
+    int n = 1, k = 1; // n = num names; k = num skips (minus 1)
     string name;
     vector<string> names;
 

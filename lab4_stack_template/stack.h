@@ -49,11 +49,11 @@ void stack<T>::push(T val)
 template<typename T>
 void stack<T>::pop()
 {
-    if(size != 0)
+    if(size != 0) 
     {
         size--;
     }
-    else
+    else // underflow
     {
         throw out_of_range("Called pop on empty stack.");
     }
@@ -62,11 +62,11 @@ void stack<T>::pop()
 template<typename T>
 void stack<T>::pop_two()
 {
-    if(size == 0)
+    if(size == 0) // underflow
     {
         throw out_of_range("Called pop_two on empty stack.");
     }
-    else if (size == 1)
+    else if (size == 1) //underflow
     {
         throw out_of_range("Called pop_two on a stack of size 1.");
     }
@@ -80,7 +80,7 @@ void stack<T>::pop_two()
 template<typename T>
 T stack<T>::top()
 {
-    if(size == 0)
+    if(size == 0) //underflow
     {
         throw underflow_error("Called top on empty stack.");
     }
