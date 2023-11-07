@@ -1,6 +1,6 @@
 #include <iostream>
 #include "arithmeticExpression.h"
-
+#include <string>
 using namespace std;
 
 int main(){

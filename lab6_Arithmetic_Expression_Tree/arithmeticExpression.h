@@ -2,6 +2,7 @@
 #define ARITHMETICEXPRESSION_H
 #include <iostream>
 #include <cstdlib>
+#include <string>
 
 using namespace std;
 struct TreeNode{
@@ -9,7 +10,7 @@ struct TreeNode{
     char key;
     TreeNode* left;
     TreeNode* right;
-    TreeNode(char data, char key):data(data),key(key),left(0),right(0){}
+    TreeNode(char data, char key):data(data),key(key),left(NULL),right(NULL){}
 };
 
 class arithmeticExpression{
@@ -24,8 +25,9 @@ class arithmeticExpression{
 
     /* Implementation of destrucor is optional.
        The destructor should deallocate all the nodes in the tree. */
-    //~arithmeticExpression();
-
+    ~arithmeticExpression();
+    arithmeticExpression(const arithmeticExpression &) = delete;            // prohibit copy
+    arithmeticExpression &operator=(const arithmeticExpression &) = delete; // prohibit copy assignment
     /* Converts the infixExpression to its equivalent postfix string
        and then generates the tree and assigns the root node to the 
        root data field. The key for the first node is 'a', 'b' for the second node and so on. */
