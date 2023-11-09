@@ -38,7 +38,6 @@ void arithmeticExpression::buildTree()
             node->left = expressionStack.top();
             expressionStack.pop();
             expressionStack.push(node);
-            cout << node->data;
         }
         }
     // assign root to the top of stack
