@@ -5,6 +5,7 @@ using namespace std;
 
 int main(){
     string expr1 = "a+b*c";
+    //cout << expr1;
     arithmeticExpression ex1(expr1);
     ex1.buildTree();
     cout<<"expression 1: "<<expr1<<endl;

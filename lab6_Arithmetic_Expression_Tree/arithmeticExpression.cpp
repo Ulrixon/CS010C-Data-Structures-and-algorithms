@@ -9,8 +9,8 @@ using namespace std;
 
 arithmeticExpression::arithmeticExpression(const string &input)
 {
-    infixExpression = "a+b";
-    //cout << "a+b";
+    infixExpression = input;
+    cout << infixExpression;
     root = NULL;
 }
 
@@ -24,26 +24,27 @@ void arithmeticExpression::buildTree()
 {
     string postExpression = infix_to_postfix();
     //cout << postExpression << endl;
-    stack<TreeNode> expressionStack;
+    stack<TreeNode*> expressionStack;
     for (size_t i = 0; i < postExpression.size(); i++) // build tree through stack
     {
-        if(priority(postExpression[i]) == 0) // if digit just add to stack
+        if(priority(postExpression.at(i)) == 0) // if digit just add to stack
         {
-            TreeNode node = TreeNode(postExpression[i], (char(65+i)));
+            TreeNode* node = new TreeNode(postExpression.at(i), (char(65+i)));
             expressionStack.push(node);
         }
         else // pop two node from stack and makes them new node's left and right and then push back
         {
-            TreeNode node = TreeNode(postExpression[i], (char(65+i)));
-            node.left = &(expressionStack.top());
+            TreeNode* node = new TreeNode(postExpression.at(i), (char(65+i)));
+            node->right = expressionStack.top();
             expressionStack.pop();
-            node.right = &(expressionStack.top());
+            node->left = expressionStack.top();
             expressionStack.pop();
             expressionStack.push(node);
+            cout << node->data;
         }
-    }
+        }
     // assign root to the top of stack
-    root = &(expressionStack.top());
+    root = (expressionStack.top());
 }
 
 int arithmeticExpression::priority(char op)
