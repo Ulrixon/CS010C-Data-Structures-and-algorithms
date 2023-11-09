@@ -10,7 +10,6 @@ using namespace std;
 arithmeticExpression::arithmeticExpression(const string &input)
 {
     infixExpression = input;
-    cout << infixExpression;
     root = NULL;
 }
 
@@ -23,7 +22,6 @@ arithmeticExpression::~arithmeticExpression()
 void arithmeticExpression::buildTree()
 {
     string postExpression = infix_to_postfix();
-    //cout << postExpression << endl;
     stack<TreeNode*> expressionStack;
     for (size_t i = 0; i < postExpression.size(); i++) // build tree through stack
     {
