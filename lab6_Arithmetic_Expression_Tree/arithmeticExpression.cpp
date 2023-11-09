@@ -73,9 +73,22 @@ void arithmeticExpression::infix(TreeNode* currNode)
     {
         return;
     }
-    infix(currNode->left);
-    cout << currNode->data;
-    infix(currNode->right);
+    
+    if (priority(currNode->data) >0)
+    {
+        cout << "(";
+        infix(currNode->left);
+        cout << currNode->data;
+        infix(currNode->right);
+        cout << ")";
+    }
+    else
+    {
+        infix(currNode->left);
+        cout << currNode->data;
+        infix(currNode->right);
+    }
+    
 }
 
 void arithmeticExpression::prefix()
