@@ -12,10 +12,10 @@ int partition_midpoint(int numbers[], int i, int k) {
   int pivot = numbers[(i + k) / 2];
   while (i <= k) { // keep swapping if found bigger one on the left and smaller
                    // one on the right
-    while (numbers[i] < pivot) {
+    while (numbers[i] < pivot) { // found bigger one in wrong side
       i++;
     }
-    while (numbers[k] > pivot) {
+    while (numbers[k] > pivot) { // found smaller one in wrong side
       k--;
     }
     if (i >= k) {
@@ -39,6 +39,7 @@ void Quicksort_midpoint(int numbers[], int i, int k) {
   }
 
   int lowEndIndex = partition_midpoint(numbers, i, k);
+  // seperate to bigger part and smaller part and keep sorting
   Quicksort_midpoint(numbers, i, lowEndIndex);
   Quicksort_midpoint(numbers, lowEndIndex + 1, k);
 }
@@ -49,10 +50,10 @@ int partition_medianOfThree(int numbers[], int i, int k) {
   int pivot = array[1];
   while (i <= k) { // keep swapping if found bigger one on the left and smaller
                    // one on the right
-    while (numbers[i] < pivot) {
+    while (numbers[i] < pivot) { // found bigger one in wrong side
       i++;
     }
-    while (numbers[k] > pivot) {
+    while (numbers[k] > pivot) { // found smaller one in wrong side
       k--;
     }
     if (i >= k) {
@@ -76,6 +77,7 @@ void Quicksort_medianOfThree(int numbers[], int i, int k) {
   }
 
   int lowEndIndex = partition_medianOfThree(numbers, i, k);
+  // seperate to bigger part and smaller part and keep sorting
   Quicksort_medianOfThree(numbers, i, lowEndIndex);
   Quicksort_medianOfThree(numbers, lowEndIndex + 1, k);
 }
@@ -84,7 +86,10 @@ void InsertionSort(int numbers[], int numbersSize) {
   for (int i = 1; i < numbersSize; i++) {
     int insertPosition = i;
     while (insertPosition > 0 &&
-           numbers[insertPosition] < numbers[insertPosition - 1]) {
+           numbers[insertPosition] <
+               numbers[insertPosition -
+                       1]) { // if the number in insetionPosition smaller than
+                             // its next one keep swapping 
       // swap
       int temp = numbers[insertPosition];
       numbers[insertPosition] = numbers[insertPosition - 1];
