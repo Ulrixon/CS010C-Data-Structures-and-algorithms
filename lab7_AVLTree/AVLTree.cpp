@@ -4,7 +4,24 @@
 
 AVLTree::AVLTree() { root = NULL; }
 
-AVLTree::~AVLTree() {}
+
+void deleteAllNodeInBST(Node * currNode) // using recursive function to delete all node starting from leafs.
+{
+    if(currNode == NULL)
+    {
+        return;
+    }
+
+    deleteAllNodeInBST(currNode->LeftPointer);
+    deleteAllNodeInBST(currNode->RightPointer);
+    delete currNode;
+}
+
+AVLTree::~AVLTree() {
+    if (root != NULL) {
+      deleteAllNodeInBST(root);
+    }
+}
 
 int height_of_key(Node *currNode) // find this subtree's max depth
 {

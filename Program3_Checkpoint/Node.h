@@ -21,9 +21,11 @@ private:
   // Add additional functions/variables here. Remember, you may not add any
   // Node * or string variables.
 public:
-  Node();
+  Node(const string &);
   ~Node();
-  
+  Node(const Node &) = delete;            // prohibit copy
+  Node &operator=(const Node &) = delete; // prohibit copy assignment
+
 
 };
 
